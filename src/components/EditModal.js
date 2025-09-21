@@ -161,6 +161,7 @@ export default function EditModal({ openPopup, photo, onClose, viewOnly=false, o
                     setPreview={setPreview}
                     label="Reupload Photo"
                     viewOnly={viewOnly}
+                    multiple={false}
                   />
                 ) : (
                   <div style={{ position: "relative" }}>
@@ -236,7 +237,6 @@ export default function EditModal({ openPopup, photo, onClose, viewOnly=false, o
         </Stack>
       </DynamicPopup>
 
-      {/* Confirm remove dialog for reupload */}
       <ConfirmDialog
         open={confirmOpen}
         title="Remove Reuploaded Photo?"
