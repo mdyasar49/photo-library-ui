@@ -70,17 +70,36 @@ if (viewOnly && files.length === 0) {
       {files.length > 0 ? (
         <Stack direction="row" spacing={1} justifyContent="flex-start" sx={{ flexWrap: "wrap" }}>
           {files.map((file, i) => (
-            <Stack key={i} spacing={1} sx={{ position: "relative" }}>
+            <Stack
+              key={i}
+              spacing={1}
+              sx={{
+                position: "relative",
+                width: "100%",
+                height: 200,
+                "&:hover .remove-btn": { opacity: 1 },
+              }}
+            >
               <img
                 src={file.preview}
                 alt={file.name}
-                style={{ width: 100, height: 100, objectFit: "cover", borderRadius: 4 }}
+                style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 4 }}
               />
               {!viewOnly && (
                 <IconButton
+                  className="remove-btn"
                   size="small"
                   onClick={(e) => { e.stopPropagation(); handleRemove(i); }}
-                  sx={{ position: "absolute", top: 0, right: 0, bgcolor: "rgba(0,0,0,0.4)", "&:hover": { bgcolor: "rgba(0,0,0,0.6)" } }}
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    bgcolor: "rgba(0,0,0,0.4)",
+                    "&:hover": { bgcolor: "rgba(0,0,0,0.6)" },
+                    opacity: 0,
+                    transition: "opacity 0.2s ease-in-out",
+                  }}
                 >
                   <CloseIcon sx={{ color: "white" }} />
                 </IconButton>
@@ -96,6 +115,7 @@ if (viewOnly && files.length === 0) {
           </Typography>
         </>
       )}
+
 
       <input
         type="file"
