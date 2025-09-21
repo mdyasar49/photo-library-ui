@@ -4,51 +4,52 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import CloseIcon from "@mui/icons-material/Close";
 import PropTypes from "prop-types";
 
-export default function FileUpload({ files = [], setFiles, label = "Upload Photos", viewOnly = false }) {
+export default function FileUpload({
+  files = [],
+  file,
+  setFiles,
+  setFile,
+  label = "Upload Photos",
+  viewOnly = false,
+  multiple = true,
+}) {
   const fileInputRef = useRef();
 
   useEffect(() => {
-    return () => files.forEach((file) => URL.revokeObjectURL(file?.preview));
-  }, [files]);
+    if (multiple) {
+      return () => files.forEach((f) => URL.revokeObjectURL(f?.preview));
+    } else if (file) {
+      return () => URL.revokeObjectURL(file.preview);
+    }
+  }, [files, file, multiple]);
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (viewOnly) return;
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      const newFiles = Array.from(e.dataTransfer.files).map((f) => Object.assign(f, { preview: URL.createObjectURL(f) }));
+  const handleFiles = (selectedFiles) => {
+    if (multiple) {
+      const newFiles = Array.from(selectedFiles).map((f) =>
+        Object.assign(f, { preview: URL.createObjectURL(f) })
+      );
       setFiles([...files, ...newFiles]);
+    } else {
+      const f = selectedFiles[0];
+      setFile(Object.assign(f, { preview: URL.createObjectURL(f) }));
     }
   };
 
   const handleRemove = (index) => {
     if (viewOnly) return;
-    const updated = [...files];
-    URL.revokeObjectURL(updated[index].preview);
-    updated.splice(index, 1);
-    setFiles(updated);
+    if (multiple) {
+      const updated = [...files];
+      URL.revokeObjectURL(updated[index].preview);
+      updated.splice(index, 1);
+      setFiles(updated);
+    } else {
+      URL.revokeObjectURL(file.preview);
+      setFile(null);
+    }
   };
 
-if (viewOnly && files.length === 0) {
-    return (
-      <Stack
-        direction="column"
-        spacing={1}
-        sx={{
-          border: "2px dashed #ccc",
-          borderRadius: 2,
-          p: 2,
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#f9f9f9",
-        }}
-      >
-        <Typography variant="body2" color="text.secondary" textAlign="center">
-          No files to display
-        </Typography>
-      </Stack>
-    );
-  }
+  const currentFiles = multiple ? files : file ? [file] : [];
+
   return (
     <Stack
       direction="column"
@@ -65,41 +66,32 @@ if (viewOnly && files.length === 0) {
       }}
       onClick={() => !viewOnly && fileInputRef.current.click()}
       onDragOver={(e) => e.preventDefault()}
-      onDrop={handleDrop}
+      onDrop={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (viewOnly) return;
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleFiles(e.dataTransfer.files);
+        }
+      }}
     >
-      {files.length > 0 ? (
+      {currentFiles.length > 0 ? (
         <Stack direction="row" spacing={1} justifyContent="flex-start" sx={{ flexWrap: "wrap" }}>
-          {files.map((file, i) => (
-            <Stack
-              key={i}
-              spacing={1}
-              sx={{
-                position: "relative",
-                width: "100%",
-                height: 200,
-                "&:hover .remove-btn": { opacity: 1 },
-              }}
-            >
+          {currentFiles.map((f, i) => (
+            <Stack key={i} spacing={1} sx={{ position: "relative" }}>
               <img
-                src={file.preview}
-                alt={file.name}
-                style={{ width: "100%", height: 160, objectFit: "cover", borderRadius: 4 }}
+                src={f.preview}
+                alt={f.name}
+                style={{ width: 100, height: 100, objectFit: "cover", borderRadius: 4 }}
               />
               {!viewOnly && (
                 <IconButton
-                  className="remove-btn"
                   size="small"
-                  onClick={(e) => { e.stopPropagation(); handleRemove(i); }}
-                  sx={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    bgcolor: "rgba(0,0,0,0.4)",
-                    "&:hover": { bgcolor: "rgba(0,0,0,0.6)" },
-                    opacity: 0,
-                    transition: "opacity 0.2s ease-in-out",
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRemove(i);
                   }}
+                  sx={{ position: "absolute", top: 0, right: 0, bgcolor: "rgba(0,0,0,0.4)", "&:hover": { bgcolor: "rgba(0,0,0,0.6)" } }}
                 >
                   <CloseIcon sx={{ color: "white" }} />
                 </IconButton>
@@ -116,18 +108,14 @@ if (viewOnly && files.length === 0) {
         </>
       )}
 
-
       <input
         type="file"
         accept="image/*"
         ref={fileInputRef}
-        multiple
+        multiple={multiple}
         onChange={(e) => {
           if (!viewOnly && e.target.files.length > 0) {
-            const newFiles = Array.from(e.target.files).map((f) =>
-              Object.assign(f, { preview: URL.createObjectURL(f) })
-            );
-            setFiles([...files, ...newFiles]);
+            handleFiles(e.target.files);
           }
         }}
         style={{ display: "none" }}
