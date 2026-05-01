@@ -1,50 +1,29 @@
-# 🖼️ Photo Library UI - Version 2.0
+# 📸 Bytecode Photo Library - Frontend (UI)
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+This is the premium React-based user interface for the Bytecode Photo Library, featuring Apple-inspired design and advanced asset management tools.
 
-A stunning, Apple-inspired minimalist photo gallery. This version represents a complete technical and visual overhaul, focusing on a premium "quiet" aesthetic and lightning-fast performance.
+## 🌿 Version Directory
+This repository is organized into the following branches:
 
-## ✨ Highlights
-- **🍏 Apple Minimalist UI**: A clean "California" aesthetic featuring high-contrast typography, deep blurred backgrounds, and smooth rounded corners.
-- **⚡ Vite-Powered**: Replaced CRA for near-instant boot times and blazing-fast HMR (Hot Module Replacement).
-- **🎭 Micro-Animations**: Subtle hover interactions and transitions that make the interface feel alive.
-- **📱 Responsive by Design**: A fluid grid system that adapts perfectly from mobile devices to ultra-wide displays.
-- **🔍 Intelligent Filtering**: Real-time search engine that categorizes your library instantly.
+### 🚀 [version-3 (Current)](https://github.com/mdyasar49/photo-library-ui/tree/version-3)
+**"Bytecode Shield" UI**
+- Premium glassmorphism design with Sidebar.
+- Bulk management, Select All, and Stats Dashboard.
+- Bytecode Inspector and dynamic previews.
 
-## 🛠️ Technology Stack
-| Component | Technology |
-| :--- | :--- |
-| **Base** | React 18 |
-| **Build Tool** | Vite v5 |
-| **Design System** | Material UI (MUI) |
-| **Icons** | Lucide React |
-| **Networking** | Axios |
+### 🛠️ [version-2](https://github.com/mdyasar49/photo-library-ui/tree/version-2)
+**"Functional UI"**
+- Basic dashboard with photo grid and simple folder view.
 
-## ⚙️ Installation & Setup
-
-### 1. Project Initialization
-```bash
-# Clone the repository
-git clone https://github.com/mdyasar49/photo-library-ui.git
-cd photo-library-ui
-```
-
-### 2. Install Dependencies
-```bash
-npm install
-```
-
-### 3. Start Development Server
-```bash
-npm run dev
-```
-
-## 📂 Project Structure
-- `src/App.jsx`: The core application logic and state management.
-- `src/index.css`: Custom Apple-inspired global styles and blurred layout classes.
-- `src/api.js`: Centrally managed Axios configuration.
+### 📜 [version-1](https://github.com/mdyasar49/photo-library-ui/tree/version-1)
+**"Legacy UI"**
+- Simple photo gallery (Deprecated).
 
 ---
-*Created for those who value minimalist design and peak performance.*
+
+## 🛠️ Setup
+1. `npm install`
+2. `npm run dev`
+
+---
+*Created by Antigravity - Advanced Agentic Coding*
