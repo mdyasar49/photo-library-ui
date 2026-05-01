@@ -44,8 +44,6 @@ export default function Image({ photo, handleView, handleEdit, handleDownload, d
             <Stack
                 className="overlay"
                 direction="row"
-                alignItems="center"
-                justifyContent="center"
                 spacing={1}
                 sx={{
                     position: "absolute",
@@ -56,6 +54,8 @@ export default function Image({ photo, handleView, handleEdit, handleDownload, d
                     bgcolor: "rgba(0,0,0,0.4)",
                     opacity: 0,
                     transition: "opacity 0.3s ease-in-out",
+                    alignItems: "center",
+                    justifyContent: "center",
                 }}
             >
                 <Tooltip title="View">

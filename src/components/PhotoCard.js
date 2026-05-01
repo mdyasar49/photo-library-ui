@@ -49,7 +49,7 @@ export default function PhotoCard({ photos, onDeleted, onUpdated, viewOnly = fal
     return (
         <>
             {photos.map((p) => (
-                <Grid item key={p.id} xs={12} sm={6} md={4} lg={3}>
+                <Grid key={p.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
                     <Stack
                         direction="column"
                         component={Paper}
@@ -98,7 +98,7 @@ export default function PhotoCard({ photos, onDeleted, onUpdated, viewOnly = fal
                             deletePhoto={() => handleDeleteClick(p)}
                         />
 
-                        <Stack alignItems="flex-start" sx={{ p: 2 }}>
+                        <Stack sx={{ alignItems: "flex-start", p: 2 }}>
                             {p.tags && p.tags.length > 0 && (
                                 <Typography variant="caption" sx={{ color: "#38bdf8", fontWeight: 600, mb: 0.5, letterSpacing: 0.5 }}>
                                     {p.tags.join(" • ").toUpperCase()}

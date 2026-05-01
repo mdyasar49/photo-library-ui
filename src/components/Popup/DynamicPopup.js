@@ -30,9 +30,7 @@ const DynamicPopup = (props) => {
       <DialogTitle sx={{ backgroundColor: 'primary.main', color: 'white', pt: 0.5, pb: 0.1 }}>
         <Stack
           direction="row"
-          justifyContent="space-between"
-          alignItems="flex-start"
-          sx={{ mt: 1 }}
+          sx={{ alignItems: "flex-start", justifyContent: "space-between", mt: 1 }}
         >
           <Typography
             variant="primaryTitle"

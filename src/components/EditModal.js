@@ -212,7 +212,7 @@ export default function EditModal({ openPopup, photo, onClose, viewOnly=false, o
             fullWidth
           />
 
-          <Stack direction="row" spacing={2} justifyContent="flex-end">
+          <Stack direction="row" spacing={2} sx={{ justifyContent: "flex-end" }}>
             <Button variant="outlined" onClick={onClose} disabled={saving}>
               Cancel
             </Button>

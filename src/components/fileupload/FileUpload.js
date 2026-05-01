@@ -76,7 +76,7 @@ export default function FileUpload({
       }}
     >
       {currentFiles.length > 0 ? (
-        <Stack direction="row" spacing={1} justifyContent="flex-start" sx={{ flexWrap: "wrap" }}>
+        <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", justifyContent: "flex-start" }}>
           {currentFiles.map((f, i) => (
             <Stack key={i} spacing={1} sx={{ position: "relative" }}>
               <img

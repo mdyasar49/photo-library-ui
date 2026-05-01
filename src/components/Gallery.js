@@ -54,7 +54,7 @@ export default function Gallery({ photos, loading, reload }) {
         <Box sx={{ flexGrow: 1 }}>
             {Object.keys(groupedPhotos).map((directory) => (
                 <Stack key={directory} spacing={1} sx={{ mb: 4 }}>
-                    <Stack direction="row" alignItems="center" sx={{ px: 2, py: 1.5, bgcolor: "rgba(255,255,255,0.05)", borderRadius: 2, borderLeft: '4px solid #38bdf8' }}>
+                    <Stack direction="row" sx={{ alignItems: "center", px: 2, py: 1.5, bgcolor: "rgba(255,255,255,0.05)", borderRadius: 2, borderLeft: '4px solid #38bdf8' }}>
                         <Typography variant="h6" sx={{ flexGrow: 1, color: "#e2e8f0" }}>
                             {directory}
                         </Typography>
