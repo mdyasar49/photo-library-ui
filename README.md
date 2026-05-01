@@ -1,16 +1,30 @@
-# React + Vite
+# Photo Library UI (V2.0)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A stunning, Apple-inspired minimalist photo gallery built with **React**, **Vite**, and **Material UI**.
 
-Currently, two official plugins are available:
+## Tech Stack
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Material UI (MUI) + Custom CSS
+- **Icons**: Lucide React + MUI Icons
+- **HTTP Client**: Axios
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Key Features
+- **Apple Minimalist Design**: Ultra-clean light theme with frosted glass effects and smooth transitions.
+- **Vite Performance**: Instant hot-reloading and lightning-fast builds.
+- **Responsive Layout**: Optimized for all screen sizes with a custom grid system.
+- **Live Search**: Real-time filtering by tags, description, or filename.
+- **Modern File Handling**: Seamless upload and editing experience.
 
-## React Compiler
+## Setup Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend Setup
+```bash
+# Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# Run development server
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The frontend will run at: **[http://localhost:3030](http://localhost:3030)**
