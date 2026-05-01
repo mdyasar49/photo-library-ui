@@ -55,10 +55,16 @@ export default function SearchBar({ photos, setPhotos, setLoading, onUpdated }) 
                 renderInput={(params) => (
                     <TextField
                     {...params}
-                    placeholder="Search by tag, description, filename..."
+                    placeholder="Search memories..."
                     variant="outlined"
                     fullWidth
-                    sx={{ bgcolor: "white", borderRadius: 1 }}
+                    sx={{ 
+                      '& .MuiOutlinedInput-root': {
+                        borderRadius: 3,
+                        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+                        color: '#f8fafc',
+                      }
+                    }}
                     />
                 )}
                 sx={{ flexGrow: 1, minWidth: 200 }}

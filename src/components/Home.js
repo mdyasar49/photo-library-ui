@@ -22,33 +22,23 @@ export default function Home() {
   }, []);
 
   return (
-    <Box sx={{ bgcolor: "#f4f6f8", minHeight: "100vh", py: 3 }}>
-      {/* Main container */}
+    <Box sx={{ minHeight: "100vh", py: 4 }}>
       <Stack
         direction="column"
-        spacing={3}
+        spacing={4}
         sx={{
           maxWidth: 1200,
           mx: "auto",
           px: 2,
         }}
       >
-        <Paper elevation={5} sx={{ borderRadius: 2 }}>
-          <AppBar
-            position="static"
-            color="primary"
-            elevation={0}
-            sx={{ borderRadius: 2 }}
-          >
-            <Toolbar>
-              <Typography variant="h5" sx={{ flexGrow: 1, fontWeight: "bold" }}>
-                Photo Library
-              </Typography>
-            </Toolbar>
-          </AppBar>
+        <Paper elevation={0} sx={{ borderRadius: 4, p: 3, display: 'flex', alignItems: 'center', background: 'linear-gradient(90deg, rgba(15,23,42,0.6) 0%, rgba(51,65,85,0.6) 100%)', borderLeft: '4px solid #38bdf8' }}>
+          <Typography variant="h4" sx={{ flexGrow: 1, background: '-webkit-linear-gradient(45deg, #38bdf8, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            Photo Vault
+          </Typography>
         </Paper>
 
-        <Paper elevation={2} sx={{ p: 2, borderRadius: 2, backgroundColor: "#ffffff" }}>
+        <Paper elevation={0} sx={{ p: 3, borderRadius: 4 }}>
           <SearchBar
             photos={photos}
             setPhotos={setPhotos}
@@ -57,12 +47,12 @@ export default function Home() {
           />
         </Paper>
 
-        <Paper elevation={2} sx={{ p: 2, borderRadius: 2, backgroundColor: "#ffffff", maxHeight: 850  }}>
+        <Paper elevation={0} sx={{ p: 3, borderRadius: 4, minHeight: 600 }}>
           <Typography
-            variant="h6"
-            sx={{ mb: 2, fontWeight: "bold", color: "#1976d2" }}
+            variant="h5"
+            sx={{ mb: 4, color: "#e2e8f0" }}
           >
-            Gallery
+            Your Gallery
           </Typography>
           <Gallery photos={photos} loading={loading} reload={loadPhotos} />
         </Paper>

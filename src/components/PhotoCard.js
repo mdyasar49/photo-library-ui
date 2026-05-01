@@ -53,15 +53,19 @@ export default function PhotoCard({ photos, onDeleted, onUpdated, viewOnly = fal
                     <Stack
                         direction="column"
                         component={Paper}
-                        spacing={0.5}
+                        spacing={0}
+                        elevation={0}
                         sx={{
-                            borderRadius: 2,
-                            backgroundColor: "#f4f4f4",
+                            borderRadius: 3,
+                            backgroundColor: "rgba(30, 41, 59, 0.6)",
                             position: "relative",
                             overflow: "hidden",
+                            transition: "all 0.3s ease",
+                            border: "1px solid rgba(255,255,255,0.05)",
                             "&:hover": {
-                                bgcolor: "background.paper",
-                                boxShadow: (theme) => theme.customShadows?.z20 || 5,
+                                transform: "translateY(-6px)",
+                                boxShadow: "0 12px 24px rgba(0,0,0,0.4), 0 0 15px rgba(56, 189, 248, 0.2)",
+                                borderColor: "rgba(56, 189, 248, 0.5)"
                             },
                         }}
                     >
@@ -94,16 +98,16 @@ export default function PhotoCard({ photos, onDeleted, onUpdated, viewOnly = fal
                             deletePhoto={() => handleDeleteClick(p)}
                         />
 
-                        <Stack alignItems="center" sx={{ p: 1 }}>
+                        <Stack alignItems="flex-start" sx={{ p: 2 }}>
                             {p.tags && p.tags.length > 0 && (
-                                <span style={{ fontSize: 12, color: "#555" }}>
-                                    {p.tags.join(", ")}
-                                </span>
+                                <Typography variant="caption" sx={{ color: "#38bdf8", fontWeight: 600, mb: 0.5, letterSpacing: 0.5 }}>
+                                    {p.tags.join(" • ").toUpperCase()}
+                                </Typography>
                             )}
                             {p.description && (
-                                <span style={{ fontSize: 14, textAlign: "center", color: "#333" }}>
+                                <Typography variant="body2" sx={{ color: "#cbd5e1", lineHeight: 1.4 }}>
                                     {p.description}
-                                </span>
+                                </Typography>
                             )}
                         </Stack>
                     </Stack>

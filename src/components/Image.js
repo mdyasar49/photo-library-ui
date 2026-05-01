@@ -12,29 +12,34 @@ export default function Image({ photo, handleView, handleEdit, handleDownload, d
             sx={{
                 position: "relative",
                 width: "100%",
-                height: 200,
+                height: 220,
                 overflow: "hidden",
                 "&:hover .overlay": {
-                opacity: 1,
+                  opacity: 1,
+                  backdropFilter: "blur(4px)"
                 },
+                "&:hover img": {
+                  transform: "scale(1.05)"
+                }
             }}
         >
-            <Card sx={{ width: "100%", height: "100%" }}>
+            <Box sx={{ width: "100%", height: "100%", overflow: "hidden" }}>
                 <img
                     src={`${BASE_URL}${photo.url}`}
                     alt={photo.description || "photo"}
                     style={{
                         width: "100%",
-                        height: 180,
+                        height: "100%",
                         objectFit: "cover",
                         display: "block",
+                        transition: "transform 0.4s ease"
                     }}
                     onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "/fallback.png";
                     }}
                 />
-            </Card>
+            </Box>
 
             <Stack
                 className="overlay"
