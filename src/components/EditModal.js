@@ -146,7 +146,7 @@ export default function EditModal({ openPopup, photo, onClose, viewOnly=false, o
                   }}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = `${BASE_URL}/fallback.png`;
+                    e.target.src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%231e293b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23cbd5e1'%3ENo Image%3C/text%3E%3C/svg%3E";
                   }}
                 />
               </Stack>
