@@ -1,30 +1,50 @@
-# Photo Library UI (V2.0)
+# 🖼️ Photo Library UI - Version 2.0
 
-A stunning, Apple-inspired minimalist photo gallery built with **React**, **Vite**, and **Material UI**.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 
-## Tech Stack
-- **Framework**: React 18
-- **Build Tool**: Vite
-- **Styling**: Material UI (MUI) + Custom CSS
-- **Icons**: Lucide React + MUI Icons
-- **HTTP Client**: Axios
+A stunning, Apple-inspired minimalist photo gallery. This version represents a complete technical and visual overhaul, focusing on a premium "quiet" aesthetic and lightning-fast performance.
 
-## Key Features
-- **Apple Minimalist Design**: Ultra-clean light theme with frosted glass effects and smooth transitions.
-- **Vite Performance**: Instant hot-reloading and lightning-fast builds.
-- **Responsive Layout**: Optimized for all screen sizes with a custom grid system.
-- **Live Search**: Real-time filtering by tags, description, or filename.
-- **Modern File Handling**: Seamless upload and editing experience.
+## ✨ Highlights
+- **🍏 Apple Minimalist UI**: A clean "California" aesthetic featuring high-contrast typography, deep blurred backgrounds, and smooth rounded corners.
+- **⚡ Vite-Powered**: Replaced CRA for near-instant boot times and blazing-fast HMR (Hot Module Replacement).
+- **🎭 Micro-Animations**: Subtle hover interactions and transitions that make the interface feel alive.
+- **📱 Responsive by Design**: A fluid grid system that adapts perfectly from mobile devices to ultra-wide displays.
+- **🔍 Intelligent Filtering**: Real-time search engine that categorizes your library instantly.
 
-## Setup Instructions
+## 🛠️ Technology Stack
+| Component | Technology |
+| :--- | :--- |
+| **Base** | React 18 |
+| **Build Tool** | Vite v5 |
+| **Design System** | Material UI (MUI) |
+| **Icons** | Lucide React |
+| **Networking** | Axios |
 
-### Frontend Setup
+## ⚙️ Installation & Setup
+
+### 1. Project Initialization
 ```bash
-# Install dependencies
-npm install
+# Clone the repository
+git clone https://github.com/mdyasar49/photo-library-ui.git
+cd photo-library-ui
+```
 
-# Run development server
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Start Development Server
+```bash
 npm run dev
 ```
 
-The frontend will run at: **[http://localhost:3030](http://localhost:3030)**
+## 📂 Project Structure
+- `src/App.jsx`: The core application logic and state management.
+- `src/index.css`: Custom Apple-inspired global styles and blurred layout classes.
+- `src/api.js`: Centrally managed Axios configuration.
+
+---
+*Created for those who value minimalist design and peak performance.*
